@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 World Cup Analysis Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏆 2026 World Cup Financial & Squad Analysis Dashboard</h1>
+            <p>Analisis korelasi antara nilai pasar skuad nasional dan statistik pemain kunci musim 2025/2026.</p>
+        </header>
+
+        <div class="filter-section">
+            <div class="filter-group">
+                <label for="filterKonfederasi">Filter Category:</label>
+                <select id="filterKonfederasi" onchange="filterData()">
+                    <option value="Semua">All Countries (48 Contestants)</option>
+                    <optgroup label="By Region/Confederation">
+                        <option value="UEFA">UEFA (Europe)</option>
+                        <option value="CONMEBOL">CONMEBOL (South America)</option>
+                        <option value="CONCACAF">CONCACAF (North & Central America)</option>
+                        <option value="CAF">CAF (Africa)</option>
+                        <option value="AFC">AFC (Asia)</option>
+                    </optgroup>
+                    <optgroup label="By Tournament Stage Projection">
+                        <option value="Round of 16">Round of 16 Candidates</option>
+                        <option value="Quarter-finals">Quarter-finalists (Top 8)</option>
+                        <option value="Semi-finals">Semi-finalists (Top 4)</option>
+                        <option value="Finalists">Finalist Contenders (Top 2)</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+
+        <main class="dashboard-grid" style="display: flex; flex-direction: column; gap: 20px;">
+            <div id="player-view-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 20px;">
+                <img id="player-photo" src="https://api.dicebear.com/7.x/bottts/svg?seed=soccer" alt="Player Photo" style="width: 80px; height: 80px; border-radius: 50%; background: #e2e8f0; padding: 5px;">
+                <div>
+                    <h3 id="player-name" style="margin: 0 0 5px 0; color: #2c5282;">Pilih Batang Grafik Negara</h3>
+                    <p id="player-detail" style="margin: 0; color: #4a5568; font-size: 0.95rem;">Arahkan kursor atau klik salah satu grafik negara di bawah untuk melihat foto dan statistik real pemain kunci.</p>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h3>Squad Market Value & Key Player Performance</h3>
+                <div class="chart-container">
+                    <canvas id="barChart"></canvas>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Data Source: <a href="https://www.transfermarkt.com/world-cup/startseite/pokalwettbewerb/FIWC" target="_blank">Transfermarkt Official Website</a></p>
+            <p class="credit">Final Project CAK4XBB3 Visualisasi Data - Telkom University</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
